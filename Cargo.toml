@@ -1,7 +1,7 @@
 [workspace]
-#
-# Packages and exclusions go here
-#
+members = [
+    "alloc"
+]
 
 # We need to explicitly specify resolver 2.
 # We shouldn't have to per https://doc.rust-lang.org/edition-guide/rust-2021/default-cargo-resolver.html, but that does not appear to be the case
