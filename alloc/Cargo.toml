@@ -11,5 +11,4 @@ description = "Allocator for SGX enclave"
 categories = ["hardware-support", "no-std"]
 keywords = ["sgx", "no-std", "alloc"]
 
-
 [dependencies]

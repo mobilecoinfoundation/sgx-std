@@ -5,7 +5,7 @@
 -->[![Dependency Status][deps-image]][deps-link]<!--
 -->[![CodeCov Status][codecov-image]][codecov-link]<!--
 -->[![GitHub Workflow Status][gha-image]][gha-link]<!--
--->[![Contributor Covenant][conduct-image]](CODE_OF_CONDUCT.md) 
+-->[![Contributor Covenant][conduct-image]][conduct-link]
 
 This repository contains MobileCoin's implementations of functionality that exists in Rust's `libstd`. It is not organized as a single crate, but rather as a collection of crates that provide some required/obvious functionality, in particular the requisite language items
 
@@ -22,3 +22,4 @@ This repository contains MobileCoin's implementations of functionality that exis
 [gha-image]: https://img.shields.io/github/workflow/status/mobilecoinfoundation/sgx-std/rust/main?style=flat-square
 [gha-link]: https://github.com/mobilecoinfoundation/sgx-std/actions/workflows/build.yaml?query=branch%3Amain
 [conduct-image]: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=flat-square
+[conduct-link]: CODE_OF_CONDUCT.md
