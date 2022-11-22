@@ -7,3 +7,5 @@
 extern crate alloc;
 
 mod allocator;
+
+pub use crate::allocator::Allocator;

@@ -1,6 +1,9 @@
 [workspace]
 members = [
-    "alloc"
+    "alloc",
+]
+exclude = [
+    "lang/allocator",
 ]
 
 # We need to explicitly specify resolver 2.
