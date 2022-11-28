@@ -1,4 +1,4 @@
-# MobileCoin SGX: Allocator
+# MobileCoin SGX: Global Allocator
 
 [![Project Chat][chat-image]][chat-link]<!--
 -->![License][license-image]<!--
@@ -7,7 +7,7 @@
 -->[![Docs Status][docs-image]][docs-link]<!--
 -->[![Dependency Status][deps-image]][deps-link]
 
-Provide allocator for use in an SGX enclave
+Global allocator language item for SGX enclaves
 
 [chat-image]: https://img.shields.io/discord/844353360348971068?style=flat-square
 [chat-link]: https://mobilecoin.chat
