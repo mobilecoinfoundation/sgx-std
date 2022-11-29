@@ -82,7 +82,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: stable
+          toolchain: nightly-2022-07-22
           components: clippy
           override: true
       - uses: r7kamura/rust-problem-matchers@v1
@@ -99,11 +99,10 @@ jobs:
     strategy:
       matrix:
         rust:
-          - stable
-          - beta
           - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
+      - uses: mobilecoinfoundation/actions/sgxsdk@main
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
@@ -123,11 +122,10 @@ jobs:
     strategy:
       matrix:
         rust:
-          - stable
-          - beta
           - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
+      - uses: mobilecoinfoundation/actions/sgxsdk@main
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
@@ -147,8 +145,7 @@ jobs:
     strategy:
       matrix:
         rust:
-          - stable
-          - beta
+          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
@@ -169,10 +166,11 @@ jobs:
       - "markdown-lint"
     steps:
       - uses: actions/checkout@v3
+      - uses: mobilecoinfoundation/actions/sgxsdk@main
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: stable
+          toolchain: nightly-2022-07-22
           override: true
           components: llvm-tools-preview
       - uses: taiki-e/install-action@cargo-llvm-cov
