@@ -5,7 +5,9 @@ use core::ffi::c_void;
 use core::ptr::null_mut;
 use mc_sgx_tservice_sys::{sgx_aligned_free, sgx_aligned_malloc};
 
-struct Allocator;
+/// Allocator that works in an SGX enclave
+#[derive(Debug)]
+pub struct Allocator;
 
 unsafe impl GlobalAlloc for Allocator {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
