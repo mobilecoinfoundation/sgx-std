@@ -1,0 +1,27 @@
+// Copyright (c) 2022 The MobileCoin Foundation
+enclave {
+
+    trusted {
+
+        /*
+         * A basic function that just adds 2 to its input
+         */
+        public void ecall_add_2(int input, [out] int *sum);
+
+        /*
+         * A thin wrapper that will take the provided message from the untrusted side
+         * and pipe it back out through an ocall to the untrusted side again...
+         * This shows the passing of messages via stderr through the enclave
+         *
+         * \param input: The input message. Since this will be used in rust, assume
+         *  utf8.
+         * \param len: The length of input, in bytes
+         */
+        public void ecall_round_trip_to_stderr([in, size=len] const void* input, size_t len);
+    };
+
+    untrusted {
+        void ocall_stderr([in, size=len] const void* input, size_t len);
+    };
+
+};
