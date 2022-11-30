@@ -1,9 +1,11 @@
 [workspace]
 members = [
     "alloc",
+    "io",
 ]
 exclude = [
     "panic/abort",
+    "test_enclave",
 ]
 
 # We need to explicitly specify resolver 2.

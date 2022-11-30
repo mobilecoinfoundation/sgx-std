@@ -1,0 +1,24 @@
+[package]
+name = "mc-sgx-io"
+version = "0.1.0"
+edition = "2021"
+authors = ["MobileCoin"]
+rust-version = "1.62.1"
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/mobilecoinfoundation/sgx-std"
+description = "Untrusted or host IO implementation for SGX enclaves"
+categories = ["hardware-support"]
+keywords = ["sgx"]
+
+[features]
+sim = ["mc-sgx-urts/sim"]
+default = []
+
+[dependencies]
+mc-sgx-urts = "0.4.0"
+mc-sgx-util = "0.4.0"
+once_cell = "1.16.0"
+
+[dev-dependencies]
+test_enclave = { path = "../test_enclave" }
