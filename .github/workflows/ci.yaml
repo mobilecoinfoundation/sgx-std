@@ -57,17 +57,10 @@ jobs:
     needs:
       - "rustfmt"
       - "markdown-lint"
-    strategy:
-      matrix:
-        rust:
-          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
-      - uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: ${{ matrix.rust }}
-      - run: cargo +${{ matrix.rust }} install cargo-sort
-      - run: cargo +${{ matrix.rust }} sort --workspace --check >/dev/null
+      - run: cargo install cargo-sort
+      - run: cargo sort --workspace --check >/dev/null
 
   clippy:
     runs-on: ubuntu-22.04
