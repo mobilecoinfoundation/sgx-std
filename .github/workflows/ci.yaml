@@ -14,14 +14,18 @@ env:
 jobs:
   rustfmt:
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        rust:
+          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@master
         with:
+          toolchain: ${{ matrix.rust }}
           components: rustfmt
-          toolchain: nightly-2022-07-22
       - uses: r7kamura/rust-problem-matchers@v1
-      - run: cargo fmt --all -- --check
+      - run: cargo +${{ matrix.rust }} fmt --all -- --check
 
   markdown-lint:
     runs-on: ubuntu-22.04
@@ -53,33 +57,45 @@ jobs:
     needs:
       - "rustfmt"
       - "markdown-lint"
+    strategy:
+      matrix:
+        rust:
+          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@master
         with:
-          toolchain: nightly-2022-07-22
-      - run: cargo install cargo-sort
-      - run: cargo sort --workspace --check >/dev/null
+          toolchain: ${{ matrix.rust }}
+      - run: cargo +${{ matrix.rust }} install cargo-sort
+      - run: cargo +${{ matrix.rust }} sort --workspace --check >/dev/null
 
   clippy:
     runs-on: ubuntu-22.04
     needs:
       - "rustfmt"
       - "markdown-lint"
+    strategy:
+      matrix:
+        rust:
+          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@master
         with:
+          toolchain: ${{ matrix.rust }}
           components: clippy
-          toolchain: nightly-2022-07-22
       - uses: r7kamura/rust-problem-matchers@v1
-      - run: cargo clippy --all --all-features -- -D warnings
+      - run: cargo +${{ matrix.rust }} clippy --all --all-features -- -D warnings
 
   build:
     runs-on: ubuntu-22.04
     needs:
       - "rustfmt"
       - "markdown-lint"
+    strategy:
+      matrix:
+        rust:
+          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
       - uses: mobilecoinfoundation/actions/sgxsdk@main
@@ -87,15 +103,19 @@ jobs:
           version: 2.18.100.3
       - uses: dtolnay/rust-toolchain@master
         with:
-          toolchain: nightly-2022-07-22
+          toolchain: ${{ matrix.rust }}
       - uses: r7kamura/rust-problem-matchers@v1
-      - run: cargo build --release
+      - run: cargo +${{ matrix.rust }} build --release
 
   test:
     runs-on: ubuntu-22.04
     needs:
       - "rustfmt"
       - "markdown-lint"
+    strategy:
+      matrix:
+        rust:
+          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
       - uses: mobilecoinfoundation/actions/sgxsdk@main
@@ -103,28 +123,36 @@ jobs:
           version: 2.18.100.3
       - uses: dtolnay/rust-toolchain@master
         with:
-          toolchain: nightly-2022-07-22
+          toolchain: ${{ matrix.rust }}
       - uses: r7kamura/rust-problem-matchers@v1
-      - run: cargo test --release
+      - run: cargo +${{ matrix.rust }} test --release
 
   doc:
     runs-on: ubuntu-22.04
     needs:
       - "rustfmt"
       - "markdown-lint"
+    strategy:
+      matrix:
+        rust:
+          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@master
         with:
-          toolchain: nightly-2022-07-22
+          toolchain: ${{ matrix.rust }}
       - uses: r7kamura/rust-problem-matchers@v1
-      - run: cargo doc --release --no-deps
+      - run: cargo +${{ matrix.rust }} doc --release --no-deps
 
   coverage:
     runs-on: ubuntu-22.04
     needs:
       - "rustfmt"
       - "markdown-lint"
+    strategy:
+      matrix:
+        rust:
+          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
       - uses: mobilecoinfoundation/actions/sgxsdk@main
@@ -132,10 +160,10 @@ jobs:
           version: 2.18.100.3
       - uses: dtolnay/rust-toolchain@master
         with:
+          toolchain: ${{ matrix.rust }}
           components: llvm-tools-preview
-          toolchain: nightly-2022-07-22
       - uses: taiki-e/install-action@cargo-llvm-cov
-      - run: cargo llvm-cov --workspace --lcov --output-path lcov.info
+      - run: cargo +${{ matrix.rust }} llvm-cov --workspace --lcov --output-path lcov.info
       - uses: codecov/codecov-action@v3
         with:
           files: lcov.info
