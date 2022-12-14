@@ -1,7 +1,9 @@
 [workspace]
 members = [
     "alloc",
-    "panic",
+]
+exclude = [
+    "panic/abort",
 ]
 
 # We need to explicitly specify resolver 2.
