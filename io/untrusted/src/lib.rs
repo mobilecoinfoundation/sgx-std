@@ -6,7 +6,7 @@
 //!
 //! By default stderr from an enclave will be directed to the untrusted (host)
 //! stderr. Consumers can redirect this stream by providing a [`WriteAll`]
-//! function via [`stderr_write_all`].
+//! function via [`stderr_sink`].
 
 use once_cell::sync::Lazy;
 use std::ffi::c_void;
@@ -23,7 +23,7 @@ pub type WriteAll = dyn Fn(&[u8]);
 ///
 /// # Arguments
 /// * `write_all` - The function to use for writing stderr from the enclave
-pub fn stderr_write_all(write_all: &'static WriteAll) {
+pub fn stderr_sink(write_all: &'static WriteAll) {
     let mut stderr = STDERR.lock().expect("Mutex has been poisoned");
     stderr.write_all = write_all;
 }
@@ -68,6 +68,7 @@ mod tests {
     use super::*;
     use mc_sgx_urts::EnclaveBuilder;
     use mc_sgx_util::ResultInto;
+    use serial_test::serial;
     use test_enclave::{ecall_round_trip_to_stderr, ENCLAVE};
 
     static TEST_STREAM: Lazy<Mutex<String>> = Lazy::new(|| Mutex::new(String::new()));
@@ -82,8 +83,9 @@ mod tests {
     }
 
     #[test]
+    #[serial]
     fn one_line_error_message() {
-        stderr_write_all(&test_stream_write_all);
+        stderr_sink(&test_stream_write_all);
         let enclave = EnclaveBuilder::from(ENCLAVE).create().unwrap();
         let id = enclave.id();
 
@@ -98,8 +100,9 @@ mod tests {
     }
 
     #[test]
+    #[serial]
     fn multi_line_error_message() {
-        stderr_write_all(&test_stream_write_all);
+        stderr_sink(&test_stream_write_all);
         let enclave = EnclaveBuilder::from(ENCLAVE).create().unwrap();
         let id = enclave.id();
 

@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "alloc",
+    "io",
     "io/untrusted",
 ]
 exclude = [
