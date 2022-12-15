@@ -1,5 +1,5 @@
 [package]
-name = "mc-sgx-io"
+name = "mc-sgx-io-untrusted"
 version = "0.1.0"
 edition = "2021"
 authors = ["MobileCoin"]
@@ -21,4 +21,4 @@ mc-sgx-util = "0.4.0"
 once_cell = "1.16.0"
 
 [dev-dependencies]
-test_enclave = { path = "../test_enclave" }
+test_enclave = { path = "../../test_enclave" }
