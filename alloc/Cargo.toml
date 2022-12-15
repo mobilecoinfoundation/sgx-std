@@ -12,4 +12,4 @@ categories = ["hardware-support", "no-std"]
 keywords = ["sgx", "no-std", "alloc"]
 
 [dependencies]
-mc-sgx-tservice-sys = "0.3.0"
+mc-sgx-tservice-sys = "0.4.0"
