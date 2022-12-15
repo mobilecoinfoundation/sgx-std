@@ -5,6 +5,8 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 25
+  commit-message:
+    prefix: "chore(deps)"
 
   # See https://github.com/dependabot/dependabot-core/issues/2824 for doing
   # multiple directories for the same check.
@@ -13,9 +15,13 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 25
+  commit-message:
+    prefix: "chore(deps)"
 
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
+  commit-message:
+    prefix: "chore(deps)"
