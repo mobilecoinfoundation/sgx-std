@@ -19,7 +19,7 @@ This repository contains MobileCoin's implementations of functionality that exis
 [deps-link]: https://deps.rs/repo/github/mobilecoinfoundation/sgx-std
 [codecov-image]: https://img.shields.io/codecov/c/github/mobilecoinfoundation/sgx-std/develop?style=flat-square
 [codecov-link]: https://codecov.io/gh/mobilecoinfoundation/sgx-std
-[gha-image]: https://img.shields.io/github/workflow/status/mobilecoinfoundation/sgx-std/rust/main?style=flat-square
-[gha-link]: https://github.com/mobilecoinfoundation/sgx-std/actions/workflows/build.yaml?query=branch%3Amain
+[gha-image]: https://img.shields.io/github/actions/workflow/status/mobilecoinfoundation/sgx-std/ci.yaml?branch=main&style=flat-square
+[gha-link]: https://github.com/mobilecoinfoundation/sgx-std/actions/workflows/ci.yaml?query=branch%3Amain
 [conduct-image]: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=flat-square
 [conduct-link]: CODE_OF_CONDUCT.md
