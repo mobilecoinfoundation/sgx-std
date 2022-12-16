@@ -1,0 +1,15 @@
+[package]
+name = "mc-sgx-panic-log"
+version = "0.1.0"
+edition = "2021"
+authors = ["MobileCoin"]
+rust-version = "1.62.1"
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/mobilecoinfoundation/sgx-std"
+description = "Panic handler for an SGX enclave that logs to the untrusted (host)"
+categories = ["hardware-support", "no-std"]
+keywords = ["sgx", "no-std", "panic"]
+
+[dependencies]
+mc-sgx-io = { path = "../../io", version = "0.1.0" }
