@@ -69,7 +69,10 @@ jobs:
     strategy:
       matrix:
         rust:
-          - nightly-2022-07-22
+          - stable
+          - beta
+    # Prevent beta warnings from causing CI failure
+    continue-on-error: ${{ matrix.rust == 'beta' }}
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@master
@@ -89,7 +92,9 @@ jobs:
     strategy:
       matrix:
         rust:
-          - nightly-2022-07-22
+          - stable
+          - beta
+          - nightly-2022-12-13
     steps:
       - uses: actions/checkout@v3
       - uses: mobilecoinfoundation/actions/sgxsdk@main
@@ -111,7 +116,9 @@ jobs:
     strategy:
       matrix:
         rust:
-          - nightly-2022-07-22
+          - stable
+          - beta
+          - nightly-2022-12-13
     steps:
       - uses: actions/checkout@v3
       - uses: mobilecoinfoundation/actions/sgxsdk@main
@@ -131,7 +138,10 @@ jobs:
     strategy:
       matrix:
         rust:
-          - nightly-2022-07-22
+          - stable
+          - beta
+    # Prevent beta warnings from causing CI failure
+    continue-on-error: ${{ matrix.rust == 'beta' }}
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@master
@@ -147,21 +157,16 @@ jobs:
     needs:
       - "rustfmt"
       - "markdown-lint"
-    strategy:
-      matrix:
-        rust:
-          - nightly-2022-07-22
     steps:
       - uses: actions/checkout@v3
       - uses: mobilecoinfoundation/actions/sgxsdk@main
         with:
           version: 2.18.100.3
-      - uses: dtolnay/rust-toolchain@master
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: ${{ matrix.rust }}
           components: llvm-tools-preview
       - uses: taiki-e/install-action@cargo-llvm-cov
-      - run: cargo +${{ matrix.rust }} llvm-cov --workspace --lcov --output-path lcov.info
+      - run: cargo llvm-cov --workspace --lcov --output-path lcov.info
       - uses: codecov/codecov-action@v3
         with:
           files: lcov.info
