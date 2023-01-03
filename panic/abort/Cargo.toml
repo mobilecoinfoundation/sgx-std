@@ -13,5 +13,5 @@ keywords = ["sgx", "no-std", "panic"]
 
 [dependencies]
 # To get link in the abort() function
-mc-sgx-trts-sys = "0.3.0"
+mc-sgx-trts-sys = "0.4.0"
 
