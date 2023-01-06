@@ -56,7 +56,7 @@ fn default_stderr_write_all(buf: &[u8]) {
 /// The ocall that will take in stderr messages from the enclave.
 extern "C" fn ocall_stderr(input: *const c_void, len: usize) {
     // SAFETY: Converting from C interface to Rust. We must rely on the enclave
-    // side of the implementation to provide teh correct length for the input
+    // side of the implementation to provide the correct length for the input
     // buffer
     let bytes = unsafe { slice::from_raw_parts(input as *const u8, len) };
     let stderr = STDERR.lock().expect("Mutex has been poisoned");
