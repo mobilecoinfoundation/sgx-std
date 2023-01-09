@@ -9,15 +9,16 @@ use mc_sgx_core_sys_types::sgx_status_t;
 use mc_sgx_core_types::Error;
 use mc_sgx_util::ResultInto;
 
-/// Attempts to write the entire buffer into the hosts stderr sink.
+/// Write the entire `buffer` into the hosts stderr sink.
 ///
 /// # Arguments
 /// * `buffer` - The buffer to write.
 ///
 /// # Errors
-/// If there is any error writing all of `buffer` to the sink. No
-/// assumptions should be made about the amount that was written to the sink
-/// when an error occurs.
+/// When not all of `buffer` could be written to the hosts stderr sink.
+///
+/// If there is an error, no assumptions should be made about the amount of
+/// `buffer` that was written.
 pub fn stderr_write_all(buffer: &[u8]) -> Result<(), Error> {
     unsafe { ocall_stderr(buffer.as_ptr() as *const c_void, buffer.len()) }.into_result()
 }
@@ -26,7 +27,7 @@ extern "C" {
     /// The ocall to send stderr messages to
     ///
     /// # Arguments
-    /// * `input` - The input buffer/stream. Should be ui8/bytes
+    /// * `input` - The input buffer/stream. Should be u8/bytes
     /// * `len` - The byte length of `input`
     ///
     /// # Returns
@@ -77,20 +78,22 @@ mod tests {
     #[serial]
     fn single_line_output_to_stderr() {
         reset_test_stream();
-        stderr_write_all(b"what").expect("Expected the write to succeed");
+        let test_message = b"what";
+        stderr_write_all(test_message).expect("Expected the write to succeed");
 
         let written = TEST_STREAM.lock().expect("Mutex has been poisoned");
-        assert_eq!(written.as_str(), "what");
+        assert_eq!(written.as_bytes(), test_message);
     }
 
     #[test]
     #[serial]
     fn multi_line_output_to_stderr() {
         reset_test_stream();
-        stderr_write_all(b"this\nhas\nmultiple\nlines").expect("Expected the write to succeed");
+        let test_message = b"this\nhas\nmultiple\nlines";
+        stderr_write_all(test_message).expect("Expected the write to succeed");
 
         let written = TEST_STREAM.lock().expect("Mutex has been poisoned");
-        assert_eq!(written.as_str(), "this\nhas\nmultiple\nlines");
+        assert_eq!(written.as_bytes(), test_message);
     }
 
     #[test]
