@@ -6,6 +6,7 @@ members = [
 ]
 exclude = [
     "panic/abort",
+    "panic/log",
     "test_enclave",
 ]
 
