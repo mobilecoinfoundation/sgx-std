@@ -3,6 +3,7 @@ members = [
     "alloc",
     "io",
     "io/untrusted",
+    "panic"
 ]
 exclude = [
     "panic/abort",
