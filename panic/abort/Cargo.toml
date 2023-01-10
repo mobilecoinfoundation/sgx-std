@@ -11,6 +11,8 @@ description = "Panic handler for SGX enclaves that aborts"
 categories = ["hardware-support", "no-std"]
 keywords = ["sgx", "no-std", "panic"]
 
+[workspace]
+
 [dependencies]
 # To get link in the abort() function
 mc-sgx-trts-sys = "0.4.0"
@@ -32,4 +34,3 @@ tag-name = "v{{version}}"
 pre-release-replacements = [
     {file="README.md", search="mc-[a-z-]+/[0-9.]+", replace="{{crate_name}}/{{version}}"},
 ]
-
