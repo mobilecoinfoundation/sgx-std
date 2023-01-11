@@ -1,12 +1,17 @@
 // Copyright (c) 2023 The MobileCoin Foundation
 
-#[allow(dead_code)]
+//! Common backend panic implementation
+//!
+//! This is a subset of the functionality available in Rust's std
+//! [panicking.rs](https://github.com/rust-lang/rust/blob/master/library/std/src/panicking.rs)
+//! module.
 
-/// Common backend panic implementation
-///
-/// This is a subset of the functionality available in Rust's std
-/// [panicking.rs](https://github.com/rust-lang/rust/blob/master/library/std/src/panicking.rs)
-/// module.
+#![allow(dead_code)]
+
+/// Determines whether the current thread is unwinding because of panic.
+pub(crate) fn panicking() -> bool {
+    !panic_count::count_is_zero()
+}
 
 pub(crate) mod panic_count {
     //! Number of panics that are currently being handled on the current thread
@@ -113,5 +118,48 @@ pub(crate) mod panic_count {
             decrease();
             assert_eq!(get_count(), 0);
         }
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    /// Sets panic count is 0
+    /// Similar to the tests in mod `panic_count` tests need to call this prior
+    /// to testing to ensure correct behavior
+    fn clear_panic_count() {
+        while panic_count::get_count() != 0 {
+            panic_count::decrease();
+        }
+    }
+
+    #[test]
+    fn is_panicking_false_when_panic_count_zero() {
+        clear_panic_count();
+        assert!(!panicking());
+    }
+
+    #[test]
+    fn is_panicking_true_when_panic_count_gt_zero() {
+        clear_panic_count();
+
+        // First panic
+        panic_count::increase();
+        assert!(panicking());
+
+        // Second panic
+        panic_count::increase();
+        assert!(panicking());
+
+        // finished second panic
+        panic_count::decrease();
+        assert!(panicking());
+
+        // finished first panic
+        // NB that this one is *not* panicking since we've decreased back down
+        // to zero
+        panic_count::decrease();
+        assert!(!panicking());
     }
 }
