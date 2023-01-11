@@ -2,6 +2,7 @@
 /.github/       @jcape @nick-mobilecoin
 /io/            @nick-mobilecoin
 /panic/         @nick-mobilecoin
+/sync/          @nick-mobilecoin
 /test_enclave/  @nick-mobilecoin
 /LICENSE        @jcape
 /*.*            @jcape
