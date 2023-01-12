@@ -9,4 +9,4 @@
 //! Having this allows us to re-use the higher level code modules from
 //! [`::std`](https://github.com/rust-lang/rust/tree/master/library/std/src)
 
-mod mutex;
+pub(crate) mod locks;

@@ -12,8 +12,6 @@
 //! - Examples that were not possible in an SGX enclave have been omitted
 //! - Ran `cargo fmt`
 
-#![allow(dead_code)]
-
 use core::error::Error;
 use core::fmt;
 use core::sync::atomic::{AtomicBool, Ordering};
