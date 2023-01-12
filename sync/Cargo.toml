@@ -11,5 +11,11 @@ description = "Synchronization primitives for SGX enclaves"
 categories = ["hardware-support", "no-std"]
 keywords = ["sgx", "no-std"]
 
+[lib]
+# test false due to needing an enclave to fully link
+test = false
+doctest = false
+
 [dependencies]
 mc-sgx-panic = { path = "../panic", version = "=0.1.0" }
+mc-sgx-tstdc = "0.4.1"

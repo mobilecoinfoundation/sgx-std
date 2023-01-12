@@ -33,4 +33,3 @@ tag-name = "v{{version}}"
 pre-release-replacements = [
     {file="README.md", search="mc-[a-z-]+/[0-9.]+", replace="{{crate_name}}/{{version}}"},
 ]
-
