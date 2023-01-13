@@ -1,3 +1,4 @@
+// Copyright (c) The Rust Foundation
 // Copyright (c) 2023 The MobileCoin Foundation
 
 //! Poison implementation more or less copied from
