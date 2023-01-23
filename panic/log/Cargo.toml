@@ -15,6 +15,7 @@ keywords = ["sgx", "no-std", "panic"]
 
 [dependencies]
 mc-sgx-io = { path = "../../io", version = "0.1.0" }
+mc-sgx-sync = { path = "../../sync", version = "0.1.0" }
 
 # This is a crate that can only be built for an SGX target, so it's not part of
 # the root workspace. Because of this limitation we must re-iterate the

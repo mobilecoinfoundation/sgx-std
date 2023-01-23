@@ -1,13 +1,16 @@
-// Copyright (c) 2022 The MobileCoin Foundation
+// Copyright (c) 2022-2023 The MobileCoin Foundation
 
 #![doc = include_str!("../README.md")]
 #![deny(missing_docs, missing_debug_implementations)]
 #![no_std]
 
+mod write_buffer;
+
 use core::ffi::c_void;
 use mc_sgx_core_sys_types::sgx_status_t;
 use mc_sgx_core_types::Error;
 use mc_sgx_util::ResultInto;
+pub use write_buffer::WriteBuffer;
 
 /// Write the entire `buffer` into the hosts stderr sink.
 ///
