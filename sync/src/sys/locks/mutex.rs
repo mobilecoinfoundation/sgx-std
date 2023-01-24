@@ -54,4 +54,8 @@ impl Mutex {
             .try_lock()
             .expect("Mutex got into an invalid state.")
     }
+
+    pub(crate) fn raw(&self) -> &SgxMutex {
+        &self.inner
+    }
 }

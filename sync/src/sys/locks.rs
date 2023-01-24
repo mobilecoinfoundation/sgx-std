@@ -2,5 +2,7 @@
 
 //! Platform specific concurrency locking primitives.
 
+mod condvar;
 mod mutex;
+
 pub(crate) use mutex::Mutex;
