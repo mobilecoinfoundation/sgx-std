@@ -60,7 +60,7 @@ pub struct Mutex<T: ?Sized> {
     data: UnsafeCell<T>,
 }
 
-// these are the only places where `T: Send` matters; all other
+// These are the only places where `T: Send` matters; all other
 // functionality works fine on a single thread.
 unsafe impl<T: ?Sized + Send> Send for Mutex<T> {}
 unsafe impl<T: ?Sized + Send> Sync for Mutex<T> {}
@@ -99,7 +99,6 @@ impl<T> Mutex<T> {
     ///
     /// let mutex = Mutex::new(0);
     /// ```
-    #[inline]
     pub const fn new(t: T) -> Mutex<T> {
         Mutex {
             inner: sys::Mutex::new(),
@@ -190,7 +189,6 @@ impl<T: ?Sized> Mutex<T> {
     /// If another thread is active, the mutex can still become poisoned at any
     /// time. You should not trust a `false` value for program correctness
     /// without additional synchronization.
-    #[inline]
     pub fn is_poisoned(&self) -> bool {
         self.poison.get()
     }
@@ -199,10 +197,9 @@ impl<T: ?Sized> Mutex<T> {
     ///
     /// If the mutex is poisoned, it will remain poisoned until this function is called. This
     /// allows recovering from a poisoned state and marking that it has recovered. For example, if
-    /// the value is overwritten by a known-good value, then the mutex can be marked as
+    /// the value is overwritten by a known good value, then the mutex can be marked as
     /// un-poisoned. Or possibly, the value could be inspected to determine if it is in a
     /// consistent state, and if so the poison is removed.
-    #[inline]
     pub fn clear_poison(&self) {
         self.poison.clear();
     }
@@ -319,7 +316,6 @@ impl<T: ?Sized> DerefMut for MutexGuard<'_, T> {
 }
 
 impl<T: ?Sized> Drop for MutexGuard<'_, T> {
-    #[inline]
     fn drop(&mut self) {
         self.lock.poison.done(&self.poison);
         self.lock.inner.unlock();
