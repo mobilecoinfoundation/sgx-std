@@ -73,10 +73,7 @@ jobs:
     strategy:
       matrix:
         rust:
-          - stable
-          - beta
-    # Prevent beta warnings from causing CI failure
-    continue-on-error: ${{ matrix.rust == 'beta' }}
+          - nightly-2023-01-04
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@master
@@ -98,9 +95,7 @@ jobs:
     strategy:
       matrix:
         rust:
-          - stable
-          - beta
-          - nightly-2022-12-13
+          - nightly-2023-01-04
     steps:
       - uses: actions/checkout@v3
       - uses: mobilecoinfoundation/actions/sgxsdk@main
@@ -124,9 +119,7 @@ jobs:
     strategy:
       matrix:
         rust:
-          - stable
-          - beta
-          - nightly-2022-12-13
+          - nightly-2023-01-04
     steps:
       - uses: actions/checkout@v3
       - uses: mobilecoinfoundation/actions/sgxsdk@main
@@ -146,10 +139,7 @@ jobs:
     strategy:
       matrix:
         rust:
-          - stable
-          - beta
-    # Prevent beta warnings from causing CI failure
-    continue-on-error: ${{ matrix.rust == 'beta' }}
+          - nightly-2023-01-04
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@master
@@ -167,16 +157,21 @@ jobs:
     needs:
       - "rustfmt"
       - "markdown-lint"
+    strategy:
+      matrix:
+        rust:
+          - nightly-2023-01-04
     steps:
       - uses: actions/checkout@v3
       - uses: mobilecoinfoundation/actions/sgxsdk@main
         with:
           version: 2.18.100.3
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@master
         with:
+          toolchain: ${{ matrix.rust }}
           components: llvm-tools-preview
       - uses: taiki-e/install-action@cargo-llvm-cov
-      - run: cargo llvm-cov --features sim --workspace --lcov --output-path lcov.info
+      - run: cargo +${{ matrix.rust }} llvm-cov --features sim --workspace --lcov --output-path lcov.info
       - uses: codecov/codecov-action@v3
         with:
           files: lcov.info
