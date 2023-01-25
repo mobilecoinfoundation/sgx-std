@@ -2,8 +2,6 @@
 
 //! Rust RwLock implementation used in SGX environments
 
-#![allow(dead_code)]
-
 use mc_sgx_tstdc::RwLock as SgxRwLock;
 
 /// SGX rwlock backend to use with the common Rust std lib

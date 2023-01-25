@@ -91,6 +91,7 @@ pub(crate) struct Guard {
 /// is held. The precise semantics for when a lock is poisoned is documented on
 /// each lock, but once a lock is poisoned then all future acquisitions will
 /// return this error.
+///
 /// [`Mutex`]: crate::Mutex
 /// [`RwLock`]: crate::RwLock
 pub struct PoisonError<T> {
