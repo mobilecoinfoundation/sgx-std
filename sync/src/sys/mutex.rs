@@ -52,7 +52,8 @@ impl Mutex {
     /// # Returns
     /// `true` if the mutex was locked, `false` otherwise.
     pub(crate) fn try_lock(&self) -> bool {
-        let result = self.inner.try_lock();
-        result.is_ok()
+        self.inner
+            .try_lock()
+            .expect("Mutex got into an invalid state.")
     }
 }
