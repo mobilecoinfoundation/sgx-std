@@ -12,3 +12,4 @@ categories = ["hardware-support", "no-std"]
 keywords = ["sgx", "no-std"]
 
 [dependencies]
+mc-sgx-panic = { path = "../panic", version = "=0.1.0" }
