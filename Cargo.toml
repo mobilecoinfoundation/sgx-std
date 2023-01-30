@@ -4,11 +4,10 @@ members = [
     "io",
     "io/untrusted",
     "panic",
+    "panic/sys",
     "sync",
 ]
 exclude = [
-    "panic/abort",
-    "panic/log",
     "test_enclave",
 ]
 

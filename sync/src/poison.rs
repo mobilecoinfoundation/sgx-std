@@ -15,7 +15,7 @@
 use core::error::Error;
 use core::fmt;
 use core::sync::atomic::{AtomicBool, Ordering};
-use mc_sgx_panic::thread;
+use mc_sgx_panic_sys::thread;
 
 pub(crate) struct Flag {
     failed: AtomicBool,

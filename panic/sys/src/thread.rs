@@ -24,7 +24,7 @@ use crate::panicking;
 /// # Examples
 ///
 /// ```should_panic
-/// use mc_sgx_panic::thread;
+/// use mc_sgx_panic_sys::thread;
 ///
 /// struct SomeStruct;
 ///
