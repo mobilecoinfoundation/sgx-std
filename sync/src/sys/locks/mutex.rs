@@ -5,8 +5,6 @@
 //! Per the docs and discussions Rust mutexes are not re-entrant,
 //! <https://github.com/rust-lang/rust/issues/32260>.
 
-#![allow(dead_code)]
-
 use mc_sgx_tstdc::Mutex as SgxMutex;
 
 /// The mutex backend to use with the common Rust std lib Mutex interface
