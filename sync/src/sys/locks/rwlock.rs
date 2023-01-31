@@ -16,9 +16,6 @@ pub(crate) struct RwLock {
     inner: SgxRwLock,
 }
 
-unsafe impl Send for RwLock {}
-unsafe impl Sync for RwLock {}
-
 impl RwLock {
     /// Create a new [`RwLock`]
     pub const fn new() -> RwLock {
