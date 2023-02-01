@@ -7,7 +7,16 @@
 -->[![Docs Status][docs-image]][docs-link]<!--
 -->[![Dependency Status][deps-image]][deps-link]
 
-Common panic handling behavior for SGX enclaves
+Panic handler for use in SGX enclaves
+
+The panic handler will redirect to the SGX SDK `abort()` method to mark the
+enclave as crashed.
+
+## Features
+
+- `log`: Log panic messages during panic handling. The panic messages will be
+directed to the host via
+[mc-sgx-io::stderr_write_all](https://docs.rs/mc-sgx-io/latest/mc_sgx_io/fn.stderr_write_all.html).
 
 [chat-image]: https://img.shields.io/discord/844353360348971068?style=flat-square
 [chat-link]: https://mobilecoin.chat

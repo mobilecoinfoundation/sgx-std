@@ -7,8 +7,13 @@ rust-version = "1.62.1"
 license = "Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/mobilecoinfoundation/sgx-std"
-description = "Common panic handling behavior for SGX enclaves"
+description = "Panic handler for SGX enclaves"
 categories = ["hardware-support", "no-std"]
 keywords = ["sgx", "no-std", "panic"]
 
+[features]
+log = ["dep:mc-sgx-io", "dep:mc-sgx-sync"]
+
 [dependencies]
+mc-sgx-io = { path = "../io", version = "0.1.0", optional = true }
+mc-sgx-sync = { path = "../sync", version = "0.1.0", optional = true }
