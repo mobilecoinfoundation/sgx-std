@@ -4,6 +4,7 @@
 
 mod condvar;
 mod mutex;
+mod rwlock;
 
 pub(crate) use condvar::Condvar;
 pub(crate) use mutex::Mutex;
