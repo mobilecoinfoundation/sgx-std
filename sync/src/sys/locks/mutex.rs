@@ -12,9 +12,6 @@ pub(crate) struct Mutex {
     inner: SgxMutex,
 }
 
-unsafe impl Send for Mutex {}
-unsafe impl Sync for Mutex {}
-
 impl Mutex {
     /// Create a new Mutex
     pub(crate) const fn new() -> Mutex {

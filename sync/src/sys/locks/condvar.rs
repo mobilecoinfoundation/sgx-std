@@ -10,9 +10,6 @@ pub(crate) struct Condvar {
     inner: SgxCondvar,
 }
 
-unsafe impl Send for Condvar {}
-unsafe impl Sync for Condvar {}
-
 impl Condvar {
     pub const fn new() -> Self {
         Self {
