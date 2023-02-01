@@ -11,4 +11,6 @@ mod poison;
 pub use condvar::Condvar;
 pub use mutex::{Mutex, MutexGuard};
 pub use poison::{LockResult, PoisonError, TryLockError, TryLockResult};
+pub use rwlock::{RwLock, RwLockReadGuard, RwLockWriteGuard};
+mod rwlock;
 mod sys;
