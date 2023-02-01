@@ -5,4 +5,5 @@
 mod condvar;
 mod mutex;
 
+pub(crate) use condvar::Condvar;
 pub(crate) use mutex::Mutex;

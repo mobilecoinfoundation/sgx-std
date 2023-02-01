@@ -1,7 +1,6 @@
 // Copyright (c) 2023 The MobileCoin Foundation
 
 //! Rust condition variable implementation used in SGX environments
-#![allow(dead_code)]
 use crate::sys::locks::Mutex;
 use mc_sgx_tstdc::Condvar as SgxCondvar;
 
