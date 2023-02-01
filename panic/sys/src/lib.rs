@@ -6,3 +6,4 @@
 
 mod panicking;
 pub mod thread;
+pub use panicking::panic_count;

@@ -13,7 +13,7 @@ pub(crate) fn panicking() -> bool {
     !panic_count::count_is_zero()
 }
 
-pub(crate) mod panic_count {
+pub mod panic_count {
     //! Number of panics that are currently being handled on the current thread
     //!
     //! This deviates from
