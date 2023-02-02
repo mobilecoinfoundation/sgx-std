@@ -1,6 +1,6 @@
 [package]
 name = "mc-sgx-panic"
-version = "0.1.0"
+version = "0.1.1-beta.0"
 edition = "2021"
 authors = ["MobileCoin"]
 rust-version = "1.62.1"
@@ -15,6 +15,6 @@ keywords = ["sgx", "no-std", "panic"]
 log = ["dep:mc-sgx-io", "dep:mc-sgx-sync"]
 
 [dependencies]
-mc-sgx-io = { path = "../io", version = "=0.1.0", optional = true }
-mc-sgx-panic-sys = { path = "sys", version = "=0.1.0" }
-mc-sgx-sync = { path = "../sync", version = "=0.1.0", optional = true }
+mc-sgx-io = { path = "../io", version = "=0.1.1-beta.0", optional = true }
+mc-sgx-panic-sys = { path = "sys", version = "=0.1.1-beta.0" }
+mc-sgx-sync = { path = "../sync", version = "=0.1.1-beta.0", optional = true }
