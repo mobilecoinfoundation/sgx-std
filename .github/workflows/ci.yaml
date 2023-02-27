@@ -68,7 +68,7 @@ jobs:
           - nightly-2023-01-04
     steps:
       - uses: actions/checkout@v3
-      - uses: dtolnay/rust-toolchain@master
+      - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: ${{ matrix.rust }}
           components: clippy
@@ -89,7 +89,7 @@ jobs:
       - uses: mobilecoinfoundation/actions/sgxsdk@main
         with:
           version: 2.18.100.3
-      - uses: dtolnay/rust-toolchain@master
+      - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: ${{ matrix.rust }}
       - uses: r7kamura/rust-problem-matchers@v1
@@ -109,7 +109,7 @@ jobs:
       - uses: mobilecoinfoundation/actions/sgxsdk@main
         with:
           version: 2.18.100.3
-      - uses: dtolnay/rust-toolchain@master
+      - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: ${{ matrix.rust }}
       - uses: r7kamura/rust-problem-matchers@v1
@@ -126,7 +126,7 @@ jobs:
           - nightly-2023-01-04
     steps:
       - uses: actions/checkout@v3
-      - uses: dtolnay/rust-toolchain@master
+      - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: ${{ matrix.rust }}
       - uses: r7kamura/rust-problem-matchers@v1
@@ -146,7 +146,7 @@ jobs:
       - uses: mobilecoinfoundation/actions/sgxsdk@main
         with:
           version: 2.18.100.3
-      - uses: dtolnay/rust-toolchain@master
+      - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: ${{ matrix.rust }}
           components: llvm-tools-preview
