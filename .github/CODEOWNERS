@@ -1,7 +1,7 @@
-/alloc/         @nick-mobilecoin
+/alloc/         @nick-mobilecoin @jcape
 /.github/       @jcape @nick-mobilecoin
-/io/            @nick-mobilecoin
-/panic/         @nick-mobilecoin
-/sync/          @nick-mobilecoin
-/test_enclave/  @nick-mobilecoin
-/LICENSE        @jcape
+/io/            @nick-mobilecoin @jcape
+/panic/         @nick-mobilecoin @jcape
+/sync/          @nick-mobilecoin @jcape
+/test_enclave/  @nick-mobilecoin @jcape
+/LICENSE        @jcape @nick-mobilecoin
