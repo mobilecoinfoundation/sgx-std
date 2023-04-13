@@ -12,7 +12,7 @@ categories = ["hardware-support", "no-std"]
 keywords = ["sgx", "no-std"]
 
 [dependencies]
-mc-sgx-core-sys-types = "0.5.0"
+mc-sgx-core-sys-types = "0.6.0"
 mc-sgx-core-types = "0.5.0"
 mc-sgx-util = "0.5.0"
 
