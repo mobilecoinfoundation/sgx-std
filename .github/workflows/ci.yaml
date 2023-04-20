@@ -163,8 +163,7 @@ jobs:
     strategy:
       matrix:
         rust:
-          - stable
-          - beta
+          - nightly-2023-01-04
       fail-fast: false
     steps:
       - uses: actions/checkout@v3
