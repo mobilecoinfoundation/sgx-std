@@ -1,15 +1,17 @@
 [package]
 name = "mc-sgx-sync"
 version = "0.1.1-beta.0"
-edition = "2021"
-authors = ["MobileCoin"]
-rust-version = "1.62.1"
-license = "Apache-2.0"
-readme = "README.md"
-repository = "https://github.com/mobilecoinfoundation/sgx-std"
-description = "Synchronization primitives for SGX enclaves"
+authors = { workspace = true }
+# See https://crates.io/category_slugs for valid categories
 categories = ["hardware-support", "no-std"]
+description = "Synchronization primitives for SGX enclaves"
+edition = { workspace = true }
+# See https://crates.io/keywords for the common keywords
 keywords = ["sgx", "no-std"]
+license = { workspace = true }
+readme = "README.md"
+repository = { workspace = true }
+rust-version = { workspace = true }
 
 [lib]
 # test false due to needing an enclave to fully link
