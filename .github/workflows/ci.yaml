@@ -10,6 +10,10 @@ name: ci
 env:
   CARGO_INCREMENTAL: 0
   RUSTFLAGS: "-Dwarnings"
+  # This works around `dtolnay/rust-toolchain@master` it defaults to "sparse"
+  # when 1.68 is used, but the current nightly version (nightly-2023-01-04) is
+  # before the official support that doesn't use `-Z sparse`
+  CARGO_REGISTRIES_CRATES_IO_PROTOCOL: "git"
 
 jobs:
   # TODO: Fix automatically
