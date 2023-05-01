@@ -1,7 +1,22 @@
+# These lines impact repository security
+/.github/CODEOWNERS        @nick-mobilecoin @jcape @samdealy
+/.github/settings.yml      @nick-mobilecoin @jcape @samdealy
+
+# These lines prevent reviews of trivial changes blocking on particular users
+/.gitattributes
+/.gitconfig
+/.gitignore
+/.markdownlint-cli2.jsonrc
+/CHANGELOG.md
+/Cargo.toml
+/Cargo.lock
+/LICENSE
+/README.md
+/deny.toml
+/rust-toolchain.toml
+/rustfmt.toml
+
 /alloc/         @nick-mobilecoin @jcape @samdealy
-/.github/       @jcape @nick-mobilecoin @samdealy
 /io/            @nick-mobilecoin @jcape @samdealy
 /panic/         @nick-mobilecoin @jcape @samdealy
 /sync/          @nick-mobilecoin @jcape @samdealy
-/test_enclave/  @nick-mobilecoin @jcape @samdealy
-/LICENSE        @jcape @nick-mobilecoin @samdealy

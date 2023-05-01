@@ -1,14 +1,16 @@
 [package]
 name = "mc-sgx-panic-sys"
 version = "0.1.1-beta.0"
-edition = "2021"
-authors = ["MobileCoin"]
-rust-version = "1.65"
-license = "Apache-2.0"
-readme = "README.md"
-repository = "https://github.com/mobilecoinfoundation/sgx-std"
-description = "Common panic handling behavior for SGX enclaves"
+authors = { workspace = true }
+# See https://crates.io/category_slugs for valid categories
 categories = ["hardware-support", "no-std"]
+description = "Common panic handling behavior for SGX enclaves"
+edition = { workspace = true }
+# See https://crates.io/keywords for the common keywords
 keywords = ["sgx", "no-std", "panic"]
+license = { workspace = true }
+readme = "README.md"
+repository = { workspace = true }
+rust-version = { workspace = true }
 
 [dependencies]

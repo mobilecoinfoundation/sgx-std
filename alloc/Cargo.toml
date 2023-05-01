@@ -1,15 +1,27 @@
 [package]
 name = "mc-sgx-alloc"
 version = "0.1.1-beta.0"
-edition = "2021"
-authors = ["MobileCoin"]
-rust-version = "1.62.1"
-license = "Apache-2.0"
-readme = "README.md"
-repository = "https://github.com/mobilecoinfoundation/sgx-std"
-description = "Allocator for SGX enclave"
+authors = { workspace = true }
+# See https://crates.io/category_slugs for valid categories
 categories = ["hardware-support", "no-std"]
+description = "Allocator for SGX enclave"
+edition = { workspace = true }
+# See https://crates.io/keywords for the common keywords
 keywords = ["sgx", "no-std", "alloc"]
+license = { workspace = true }
+readme = "README.md"
+repository = { workspace = true }
+rust-version = { workspace = true }
+
+# At least one crate must have this configuration
+[package.metadata.release]
+pre-release-replacements = [
+    { file = "../../CHANGELOG.md", search = "Unreleased", replace = "{{version}}", min = 1 },
+    { file = "../../CHANGELOG.md", search = "\\.\\.\\.HEAD", replace="...{{tag_name}}", exactly = 1 },
+    { file = "../../CHANGELOG.md", search = "ReleaseDate", replace= "{{date}}", min = 1 },
+    { file = "../../CHANGELOG.md", search = "<!-- next-header -->", replace="<!-- next-header -->\n## [Unreleased] - ReleaseDate\n", exactly = 1 },
+    { file = "../../CHANGELOG.md", search = "<!-- next-url -->", replace="<!-- next-url -->\n[Unreleased]: https://github.com/mobilecoinfoundation/sgx-std/compare/{{tag_name}}...HEAD", exactly = 1 },
+]
 
 [dependencies]
 mc-sgx-tservice-sys = "0.6.0"

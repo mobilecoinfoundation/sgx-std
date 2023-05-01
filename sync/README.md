@@ -2,7 +2,7 @@
 
 [![Project Chat][chat-image]][chat-link]<!--
 -->![License][license-image]<!--
--->![Target][target-image]<!--
+-->![Architecture: sgx][arch-image]<!--
 -->[![Crates.io][crate-image]][crate-link]<!--
 -->[![Docs Status][docs-image]][docs-link]<!--
 -->[![Dependency Status][deps-image]][deps-link]
@@ -98,9 +98,9 @@ and are usually the only crates that directly depend on the
 `mc-sgx-<lib_wrapper>-sys` crates.
 
 [chat-image]: https://img.shields.io/discord/844353360348971068?style=flat-square
-[chat-link]: https://mobilecoin.chat
+[chat-link]: https://discord.gg/mobilecoin
 [license-image]: https://img.shields.io/crates/l/mc-sgx-sync?style=flat-square
-[target-image]: https://img.shields.io/badge/target-sgx-red?style=flat-square
+[arch-image]: https://img.shields.io/badge/arch-sgx-red?style=flat-square
 [crate-image]: https://img.shields.io/crates/v/mc-sgx-sync.svg?style=flat-square
 [crate-link]: https://crates.io/crates/mc-sgx-sync
 [docs-image]: https://img.shields.io/docsrs/mc-sgx-sync?style=flat-square

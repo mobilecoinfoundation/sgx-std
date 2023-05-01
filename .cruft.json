@@ -1,0 +1,37 @@
+{
+  "template": "https://github.com/mobilecoinfoundation/cookiecutters",
+  "commit": "6fc71b377387fc5353883a9bb6ca21a4cb79b820",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "_copy_without_render": [
+        ".github/workflows/ci.yaml",
+        ".github/workflows/issues.yaml",
+        ".github/workflows/pr-assign.yaml",
+        ".github/workflows/pr.yaml"
+      ],
+      "repo_name": "sgx-std",
+      "repo_homepage": "https://mobilecoin.foundation/",
+      "github_org": "mobilecoinfoundation",
+      "github_teams": "coredev",
+      "github_username": "@nick-mobilecoin",
+      "default_branch": "main",
+      "owners": "@nick-mobilecoin @jcape @samdealy",
+      "type": "workspace",
+      "license": "Apache-2.0",
+      "arch": "sgx",
+      "workspace_description": "Rust libstd functionality for SGX enclaves",
+      "workspace_readme_title": "MobileCoin: Rust libstd functionality for SGX enclaves",
+      "crate_name": "mc-sgx-alloc",
+      "crate_namespace_prefix": "mc-sgx-",
+      "crate_description": "Allocator for SGX enclave",
+      "crate_readme_title": "MobileCoin: Allocator for SGX enclave",
+      "crate_sub_dir": "alloc",
+      "version": "0.1.0",
+      "crate_keywords": "sgx no-std alloc",
+      "crate_categories": "hardware-support no-std",
+      "_template": "https://github.com/mobilecoinfoundation/cookiecutters"
+    }
+  },
+  "directory": "rust/repo"
+}
