@@ -20,4 +20,4 @@ doctest = false
 
 [dependencies]
 mc-sgx-panic-sys = { path = "../panic/sys", version = "=0.1.1-beta.0" }
-mc-sgx-tstdc = "0.6.0"
+mc-sgx-tstdc = "0.7.0"
