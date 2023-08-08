@@ -14,7 +14,7 @@ repository = { workspace = true }
 rust-version = { workspace = true }
 
 [dependencies]
-mc-sgx-core-sys-types = "0.6.0"
+mc-sgx-core-sys-types = "0.7.3"
 mc-sgx-core-types = "0.6.0"
 mc-sgx-util = "0.6.0"
 
