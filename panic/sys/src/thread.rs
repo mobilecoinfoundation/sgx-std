@@ -1,4 +1,4 @@
-// Copyright (c) 2023 The MobileCoin Foundation
+// Copyright (c) 2023-2024 The MobileCoin Foundation
 
 //! This is a subset of the functionality available in Rust's std
 //! [thread/mod.rs](https://github.com/rust-lang/rust/blob/master/library/std/src/thread/mod.rs)
