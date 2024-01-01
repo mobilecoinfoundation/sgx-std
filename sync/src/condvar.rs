@@ -1,5 +1,5 @@
-// Copyright (c) The Rust Foundation
-// Copyright (c) 2023 The MobileCoin Foundation
+// Copyright (c) undefined-2024The Rust Foundation
+// Copyright (c) 2023-2024 The MobileCoin Foundation
 
 //! condvar.rs implementation more or less copied from
 //! [rust source](https://github.com/rust-lang/rust.git) at

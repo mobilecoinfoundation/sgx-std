@@ -1,4 +1,4 @@
-// Copyright (c) 2022 The MobileCoin Foundation
+// Copyright (c) 2022-2024 The MobileCoin Foundation
 
 use core::alloc::{GlobalAlloc, Layout};
 use core::ffi::c_void;
